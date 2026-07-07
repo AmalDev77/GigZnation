@@ -1,0 +1,1 @@
+ALTER TABLE public.messages ADD COLUMN IF NOT EXISTS booking_id uuid REFERENCES public.bookings(id);
