@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 40% 98%;
+    --foreground: 264 50% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 264 50% 14%;
+    --card-border: 256 40% 92%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 264 50% 14%;
+
+    --primary: 263 38% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 260 40% 96%;
+    --secondary-foreground: 264 50% 14%;
+
+    --muted: 260 30% 95%;
+    --muted-foreground: 260 22% 55%;
+
+    --accent: 16 88% 66%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 160 96% 22%;
+    --success-foreground: 0 0% 100%;
+
+    --info: 178 91% 34%;
+    --info-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 256 40% 92%;
+    --input: 256 40% 92%;
+    --ring: 263 38% 55%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 263 38% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 260 40% 96%;
+    --sidebar-accent-foreground: 264 50% 14%;
+    --sidebar-border: 256 40% 92%;
+    --sidebar-ring: 263 38% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
+  }
+}
