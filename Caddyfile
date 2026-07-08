@@ -1,0 +1,4 @@
+gigznation.com, www.gigznation.com {
+    reverse_proxy app:80
+    encode gzip
+}
