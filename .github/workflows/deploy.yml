@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_REGION: ap-south-1
-  ECR_REGISTRY: 310133718498.dkr.ecr.ap-south-1.amazonaws.com
+  ECR_REGISTRY: 890615325331.dkr.ecr.ap-south-1.amazonaws.com
   ECR_REPOSITORY: gigznation-app
   IMAGE_TAG: ${{ github.sha }}
 
@@ -23,8 +23,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.GIGZ_AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.GIGZ_AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ secrets.GIGZ2_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.GIGZ2_AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Login to Amazon ECR
@@ -47,11 +47,11 @@ jobs:
       - name: Deploy to EC2 via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.GIGZ_EC2_HOST }}
-          username: ${{ secrets.GIGZ_EC2_USER }}
-          key: ${{ secrets.GIGZ_EC2_SSH_KEY }}
+          host: ${{ secrets.GIGZ2_EC2_HOST }}
+          username: ${{ secrets.GIGZ2_EC2_USER }}
+          key: ${{ secrets.GIGZ2_EC2_SSH_KEY }}
           script: |
-            cd ~/gigznation
+            cd ~/GigZnation
             aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin ${{ env.ECR_REGISTRY }}
             docker compose pull app
             docker compose up -d

@@ -1,28 +1,12 @@
 services:
   app:
-    image: 310133718498.dkr.ecr.ap-south-1.amazonaws.com/gigznation-app:latest
+    image: 890615325331.dkr.ecr.ap-south-1.amazonaws.com/gigznation-app:latest
     container_name: gigznation-app
     restart: unless-stopped
-    expose:
-      - "80"
+    ports:
+      - "127.0.0.1:8080:80"
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost/health"]
       interval: 30s
       timeout: 3s
       retries: 3
-  caddy:
-    image: caddy:2-alpine
-    container_name: gigznation-caddy
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
-      - caddy_config:/config
-    depends_on:
-      - app
-volumes:
-  caddy_data:
-  caddy_config:
